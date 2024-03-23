@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="441.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MenuControler">
+   <children>
+      <MenuBar fx:id="menuIA" layoutX="0.0" layoutY="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="IA">
+               <items>
+                  <MenuItem fx:id="menuItemSettings" mnemonicParsing="false" onAction="#settings" text="Settings" />
+                  <MenuItem fx:id="menuItemModels" mnemonicParsing="false" onAction="#moduls" text="Models" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <CheckBox fx:id="moyenButton" focusTraversable="false" layoutX="354.0" layoutY="266.0" mnemonicParsing="false" text="Moyen" />
+      <CheckBox fx:id="facileButton" focusTraversable="false" layoutX="171.0" layoutY="266.0" mnemonicParsing="false" text="Facile" />
+      <Button focusTraversable="false" layoutX="171.0" layoutY="72.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="424.0" text="HUMAIN" />
+      <Button focusTraversable="false" layoutX="171.0" layoutY="181.0" mnemonicParsing="false" onAction="#choixFait" prefHeight="65.0" prefWidth="424.0" text="IA" />
+      <CheckBox fx:id="difficileButton" focusTraversable="false" layoutX="534.0" layoutY="266.0" mnemonicParsing="false" text="Difficile" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LearnController">
+   <children>
+      <ProgressIndicator fx:id="progressIndic" layoutX="135.0" layoutY="112.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="168.0" progress="0.0" />
+      <Button fx:id="ProgButton" layoutX="181.0" layoutY="301.0" mnemonicParsing="false" onAction="#clickButtonProgress" prefHeight="32.0" prefWidth="77.0" text="Apprendre" />
+      <Label fx:id="progressInfo" focusTraversable="false" layoutX="128.0" layoutY="60.0" prefHeight="32.0" prefWidth="183.0" />
+   </children>
+</AnchorPane>
