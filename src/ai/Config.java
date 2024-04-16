@@ -8,6 +8,7 @@ public class Config {
 		this.hiddenLayerSize = hiddenLayerSize;
 		this.numberOfhiddenLayers = numberOfhiddenLayers;
 		this.learningRate = learningRate;
+		
 	}
 	
 	@Override

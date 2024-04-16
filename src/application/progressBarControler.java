@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class progressBarControler {
-	String chemin = "C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models";
+	String chemin = "C:\\Users\\33780\\Desktop\\JAVA\\PremProjet\\resources\\models";
 
 	@FXML
 	private Button startButton;

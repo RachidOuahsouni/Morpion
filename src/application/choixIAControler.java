@@ -29,7 +29,7 @@ public class choixIAControler {
 	@FXML
 	protected Button difficileButton;
 
-	String chemin = "C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models";
+	String chemin = "C:\\Users\\33780\\Desktop\\JAVA\\PremProjet\\resources\\models";
 
 	@FXML
 	protected void choixFait(ActionEvent event) {

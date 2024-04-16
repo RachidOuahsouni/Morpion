@@ -1,0 +1,65 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#7b2098 0%, #8940a0 25%, #763b89 75%, #7a2d93 100%);
+    -fx-text-fill: white;
+}
+.root {
+    -fx-background-color: #562f63; /* Couleur de fond */
+}
+
+.list-cell:odd {
+    -fx-cell-hover-color: #0093ff;
+    -fx-background-color: white;
+}
+
+.list-cell:filled:hover {
+    -fx-cell-hover-color: #0093ff;
+    -fx-text-fill: white;
+}
+.list-cell {
+    -fx-alignment: center; /* Alignement horizontal */
+    -fx-font-weight: bold; /* Police en gras */
+}
+
+.button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 0;
+    -fx-background-radius: 50;
+    -fx-background-color: #351b3e;
+    -fx-font-family: "Arial", Helvetica, Arial, sans-serif;
+    -fx-font-size: 25pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #4a404e;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-color: white, white;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: white;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}

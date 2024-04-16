@@ -2,6 +2,8 @@ package application;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import ai.Config;
@@ -9,9 +11,14 @@ import ai.ConfigFileLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class ModulsController implements Initializable {
 
@@ -19,117 +26,66 @@ public class ModulsController implements Initializable {
 	Button deleteButton;
 
 	@FXML
-	Label label1;
-
-	@FXML
-	Label label2;
-
-	@FXML
-	Label label3;
-
-	@FXML
-	CheckBox check1;
-
-	@FXML
-	CheckBox check2;
-
-	@FXML
-	CheckBox check3;
+	ListView listView;
+	
+	
 
 	public void show() {
-		File directory = new File("C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models");
-
-		if (directory.isDirectory()) {
-			File[] files = directory.listFiles();
-			if (files != null) {
-				int nbr = 0;
-				for (File file : files) {
-					nbr++;
-					if (nbr == 1)
-						label1.setText(file.getName());
-					else if (nbr == 2)
-						label2.setText(file.getName());
-					else if (nbr == 3)
-						label3.setText(file.getName());
-
-				}
-				if (nbr == 0) {
-					label3.setVisible(false);
-					check3.setVisible(false);
-					label2.setVisible(false);
-					check2.setVisible(false);
-					label1.setVisible(false);
-					check1.setVisible(false);
-				} else if (nbr == 1) {
-					label3.setVisible(false);
-					check3.setVisible(false);
-					label2.setVisible(false);
-					check2.setVisible(false);
-				} else if (nbr == 2) {
-					label3.setVisible(false);
-					check3.setVisible(false);
-				}
-			}
-		} else {
-			System.err.println("Le chemin spécifié n'est pas un répertoire.");
-		}
 		
-	}
+		
+		listView.getItems().clear();
+        File directory = new File("C:\\Users\\33780\\Desktop\\JAVA\\PremProjet\\resources\\models");
+        List<Label> labels = new ArrayList<>(); // Liste pour contenir les labels
+        List<CheckBox> checkBoxes = new ArrayList<>(); // Liste pour contenir les cases à cocher
+
+        if (directory.isDirectory()) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    Label label = new Label(file.getName()); // Créer un label pour chaque fichier
+                    labels.add(label); // Ajouter le label à la liste
+                }
+            }
+        }
+
+        listView.getItems().addAll(labels); // Ajouter les labels à la ListView
+    }
 
 	@FXML
 	public void delete(ActionEvent event) {
-		if (check1.isSelected()) {
-			String path = "C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models" + "\\" + label1.getText();
-			File file = new File(path);
+	    Label selectedLabel = (Label) listView.getSelectionModel().getSelectedItem(); // Récupérer le label sélectionné
 
-			if (file.exists()) {
-				if (file.delete()) {
-					System.out.println("Le fichier a été supprimé avec succès.");
-				} else {
-					System.out.println("Impossible de supprimer le fichier.");
-				}
-			} else {
-				System.out.println("Le fichier spécifié n'existe pas.");
-			}
+	    if (selectedLabel != null) {
+	        String fileName = selectedLabel.getText();
+	        String filePath = "C:\\Users\\33780\\Desktop\\JAVA\\PremProjet\\resources\\models\\" + fileName;
+	        File file = new File(filePath);
 
-		}
-		if (check2.isSelected()) {
-			String path = "C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models" + "\\" + label2.getText();
-			File file = new File(path);
+	        if (file.exists()) {
+	            if (file.delete()) {
+	                System.out.println("Le fichier " + fileName + " a été supprimé avec succès.");
+	                listView.getItems().remove(selectedLabel); // Supprimer l'élément sélectionné de la ListView
 
-			if (file.exists()) {
-				if (file.delete()) {
-					System.out.println("Le fichier a été supprimé avec succès.");
-				} else {
-					System.out.println("Impossible de supprimer le fichier.");
-				}
-			} else {
-				System.out.println("Le fichier spécifié n'existe pas.");
-			}
+	            } else {
+	                System.out.println("Impossible de supprimer le fichier " + fileName + ".");
+	            }
+	        } else {
+	            System.out.println("Le fichier " + fileName + " n'existe pas.");
+	        }
 
-		}
-		if (check3.isSelected()) {
-			String path = "C:\\Users\\HP\\Desktop\\PremProjet\\resources\\models" + "\\" + label3.getText();
-			File file = new File(path);
-
-			if (file.exists()) {
-				if (file.delete()) {
-					System.out.println("Le fichier a été supprimé avec succès.");
-				} else {
-					System.out.println("Impossible de supprimer le fichier.");
-				}
-			} else {
-				System.out.println("Le fichier spécifié n'existe pas.");
-			}
-
-		}
-		show();
+	    } else {
+	        System.out.println("Veuillez sélectionner un fichier à supprimer.");
+	    }
+	    listView.getSelectionModel().clearSelection();
 	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+        
 		show();
-
+		
 	}
+	
+	
 
 }
